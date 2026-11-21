@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "enterprise-erp-odata": {
+      "command": "uv",
+      "args": ["run", "erp-odata-mcp", "mcp"],
+      "description": "Enterprise ERP OData v4 & SAP S/4HANA Clean-Core MCP Server with Schema Validation, C++20 Guardrails & Hash-Chained Audit Log"
+    }
+  }
+}
