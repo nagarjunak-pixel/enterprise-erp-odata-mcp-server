@@ -65,7 +65,7 @@ flowchart LR
 
 ## 6 Built-In Enterprise Verification Scenarios (`uv run erp-odata-mcp demo`)
 
-1. **Authorized Clean-Core Query (`ALLOWED`):** Queries `A_PurchaseOrder` (`GrossAmount ge 25000`) for `CompanyCode=1000` (Dubai HQ)—returns `2` authorized rows, filters `2` cross-company (`2000`/`3000`) rows in C++20, and masks `VendorIBAN` (`AE07***REDACTED***456`).
+1. **Authorized Clean-Core Query (`ALLOWED`):** Queries `A_PurchaseOrder` (`GrossAmount ge 25000`) for `CompanyCode=1000` (Global HQ)—returns `2` authorized rows, filters `2` cross-company (`2000`/`3000`) rows in C++20, and masks `VendorIBAN` (`DE89***REDACTED***456`).
 2. **Hallucinated Legacy Z-Field (`BLOCKED`):** Rejects `ZZ_DIRTY_REBATE_CODE` (`UNKNOWN_SELECT_FIELD`, `UNKNOWN_FILTER_FIELD`) with exact released `I_PurchaseOrderAPI01` field remediation.
 3. **Prompt-Injected OData Tautology (`BLOCKED`):** C++20 lexical scanner catches `CompanyCode eq '1000' or 1 eq 1` (`FILTER_INJECTION_BLOCKED`) before execution.
 4. **Silent Autonomous ERP Write (`BLOCKED`):** Blocks `odata_simulate_po_release` when `human_approval_token` is missing (`MISSING_HUMAN_APPROVAL`).
